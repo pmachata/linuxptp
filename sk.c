@@ -105,7 +105,8 @@ static int hwts_init(int fd, const char *device, int rx_filter,
 	if (cfg.tx_type != tx_type ||
 	    (cfg.rx_filter != rx_filter &&
 	     cfg.rx_filter != rx_filter2 &&
-	     cfg.rx_filter != HWTSTAMP_FILTER_ALL)) {
+	     cfg.rx_filter != HWTSTAMP_FILTER_ALL &&
+	     cfg.rx_filter != HWTSTAMP_FILTER_SOME)) {
 		pr_debug("tx_type   %d not %d", cfg.tx_type, tx_type);
 		pr_debug("rx_filter %d not %d or %d", cfg.rx_filter, rx_filter,
 			 rx_filter2);
