@@ -70,6 +70,27 @@ const char *ev_str[] = {
 	"RS_PASSIVE",
 };
 
+const char *ts_str(uint8_t ts)
+{
+	static char buf[4];
+
+	switch (ts) {
+	case TS_SOFTWARE:
+		return "SOFTWARE";
+	case TS_HARDWARE:
+		return "HARDWARE";
+	case TS_LEGACY_HW:
+		return "LEGACY_HW";
+	case TS_ONESTEP:
+		return "ONESTEP";
+	case TS_P2P1STEP:
+		return "P2P1STEP";
+	}
+
+	sprintf(buf, "%d", ts);
+	return buf;
+}
+
 int addreq(enum transport_type type, struct address *a, struct address *b)
 {
 	void *bufa, *bufb;
